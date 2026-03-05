@@ -1,23 +1,23 @@
 <?php include "ui/header2.php";?>
 <html>
-<!--
+
 <form name="id" method="GET" action="displaydata.php">
 
-Account: <input type="text" name="aid" value=<?php $_GET['aid'];?> > <br><br>
+Account: <input type="text" name="aid"> <br><br>
 <input type="submit" value="getAccount">
 </form>
--->
+
  <a href='profile.php'>profile</a>
 
 
 <?php
 session_start();
-if(isset($_SESSION['uname'];))
+if(isset($_GET['aid']) )
 {
-  	$user=$_SESSION['uname'];
+  	$aid = $_GET['aid'];
 
  $con = mysqli_connect("127.0.0.1","groot","bose123$","bankdb");
-echo "hello $user";
+echo "hello Wordls";
  if($con->connect_errno)
  	{
 	echo $con->connect_error;
@@ -26,7 +26,7 @@ echo "hello $user";
  
  //$aid= mysqli_real_escape_string($con,$aid);	
 
- $result=mysqli_query($con,"select * from banktable where username='$user'");
+ $result=mysqli_query($con,"select * from banktable where acno=$aid");
  
  $row = mysqli_fetch_row($result);
 
