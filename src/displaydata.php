@@ -12,7 +12,7 @@ Account: <input type="text" name="aid" value=<?php $_GET['aid'];?> > <br><br>
 
 <?php
 session_start();
-if(isset($_SESSION['uname'];) )
+if(isset($_SESSION['uname'];))
 {
   	$user=$_SESSION['uname'];
 
